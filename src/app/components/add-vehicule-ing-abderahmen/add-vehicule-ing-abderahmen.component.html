@@ -1,0 +1,38 @@
+<h2>Ajouter un vehicule</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <label>Matricule:</label>
+  <input type="text" formControlName="matricule" />
+  <div *ngIf="form.get('matricule')?.invalid && form.get('matricule')?.touched">
+    Matricule est requis.
+  </div>
+
+  <label>Description:</label>
+  <input type="text" formControlName="description" />
+  <div *ngIf="form.get('description')?.errors?.['required'] && form.get('description')?.touched">
+    Description est requise.
+  </div>
+  <div *ngIf="form.get('description')?.errors?.['minlength'] && form.get('description')?.touched">
+    Description doit contenir au moins 3 caractères.
+  </div>
+
+  <label>Marque:</label>
+  <input type="text" formControlName="marque" />
+  <div *ngIf="form.get('marque')?.errors?.['required'] && form.get('marque')?.touched">
+    Marque est requis.
+  </div>
+  <div *ngIf="form.get('marque')?.errors?.['pattern'] && form.get('marque')?.touched">
+    La marque doit commencer par une lettre majuscule.
+  </div>
+  <label>Disponible:</label>
+<input type="checkbox" formControlName="disponible" />
+
+<label>Nombre d'intéressés :</label>
+<input type="number" formControlName="nbrInteresse" min="0" />
+<div *ngIf="form.get('nbrInteresse')?.invalid && form.get('nbrInteresse')?.touched">
+  Le nombre d'intéressés est requis et doit être ≥ 0.
+</div>
+  
+
+  <button type="submit" [disabled]="form.invalid">Ajouter</button>
+</form>

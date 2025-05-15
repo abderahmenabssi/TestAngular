@@ -1,0 +1,13 @@
+<div *ngFor="let vehicule of vehicule">
+  <strong>{{ vehicule.matricule }}</strong> à {{ vehicule.marque }}<br>
+  {{ vehicule.description }}<br>
+  <span [ngClass]="{ 'text-success': vehicule.disponible, 'text-danger': !vehicule.disponible }">
+    {{ vehicule.disponible ? '✅ Disponible' : '❌ Indisponible' }}
+  </span><br>
+  Intéressés : {{ vehicule.nbrInteresse }}<br>
+
+  <a [routerLink]="['/details', vehicule.id]">Détails</a>
+  &nbsp;|&nbsp;
+  <button (click)="supprimerVehicule(vehicule.id)">Supprimer</button>
+  <hr>
+</div>

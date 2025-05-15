@@ -1,0 +1,20 @@
+{
+  "vehicule": [
+    {
+      "id": "58d2",
+      "matricule": "aaa",
+      "description": "aaa",
+      "marque": "Maa",
+      "disponible": true,
+      "nbrInteresse": 0
+    },
+    {
+      "id": "74f7",
+      "matricule": "azeaezaz",
+      "description": "azeaze",
+      "marque": "Aaaaa",
+      "disponible": false,
+      "nbrInteresse": 4
+    }
+  ]
+}
